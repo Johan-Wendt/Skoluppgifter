@@ -24,35 +24,50 @@ public class Uppgift5_Matematikmetoder {
             System.out.println("2: beräkna volymen för en cylinder");
             System.out.println("3: Omvandla ett bråk till blandad form");
             System.out.println("4: beräkna summan av 1 + 2 +...+ n");
-            System.out.println("5: beräkna en punkt på en linje");
-            System.out.println("6: lista  punkter på en linje\n");
+            System.out.println("5: lista  punkter på en linje");
+            System.out.println("9: Avlsuta\n");
             System.out.print("Välj ett alternativ: ");
             int choice = scan.nextInt();
             
             if(choice == 1) {
+                System.out.print("Ange klotets radie: ");
+                int r = scan.nextInt();
+                double volume = Math.round(volume(r));
+                System.out.println("Klotets volym är " + volume + " volymenheter.");
+            }
+            
+            else if(choice == 2) {
+                System.out.print("Ange cylinderns radie: ");
+                int r = scan.nextInt();
+                System.out.print("Ange cylinderns höjd: ");
+                int h = scan.nextInt();
+                double volume = Math.round(volume(r, h));
+                System.out.println("Cylinderns volym är " + volume + " volymenheter.");
+            }
+            
+            else if(choice == 3) {
                 
             }
             
-            if(choice == 2) {
+            else if(choice == 4) {
                 
             }
             
-            if(choice == 3) {
-                
-            }
-            
-            if(choice == 4) {
-                
-            }
-            
-            if(choice == 5) {
-                
-            }
-            
-            if(choice == 6) {
-                
+            else if(choice == 5) {
+                System.out.print("Ange högsta x-värde: ");
+                int n = scan.nextInt();
+                System.out.print("Ange k-värde: ");
+                int k = scan.nextInt();
+                System.out.print("Ange m-värde: ");
+                int m = scan.nextInt();
+                printLine(calcLine(n, k, m));
             }
 
+            else if(choice == 9) {
+                run = false;
+            }
+
+            System.out.println("");
         }
         
         
@@ -88,7 +103,7 @@ public class Uppgift5_Matematikmetoder {
         return k * x + m;
     }
     public static int[] calcLine(int n, int k, int m) {
-        int[] result = new int[n];
+        int[] result = new int[n + 1];
         for(int a = 1; a <= n; a++) {
             result[a] = calcPoint(a, k, m);
         }
